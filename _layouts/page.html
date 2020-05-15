@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+ <head>
+  <meta charset="utf-8">
+
+  <style>
+    {% include style.css %}
+  </style>
+
+  <title>
+  {% if page.title %}{{page.title}}{% else %}Oleksandr Gituliar{% endif %}
+  </title>
+ </head>
+
+ <body>
+
+  <article>
+   <div id="content">
+   {{content}}
+   </div>
+
+  <hr>
+  Last update: {{ page.last_modified_at }}
+  </article>
+
+ </body>
+</html>

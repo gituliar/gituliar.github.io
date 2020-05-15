@@ -1,0 +1,12 @@
+exclude:
+  - 'Makefile'
+  - 'blog.md'
+
+gems:
+  - jekyll-last-modified-at
+
+highlighter: pygments
+lsi: false
+markdown: kramdown
+permalink: /blog/:year-:month-:day-:title
+safe: false
