@@ -5,7 +5,7 @@ exclude:
 gems:
   - jekyll-last-modified-at
 
-highlighter: pygments
+highlighter: rouge
 lsi: false
 markdown: kramdown
 permalink: /blog/:year-:month-:day-:title
