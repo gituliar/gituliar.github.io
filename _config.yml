@@ -62,6 +62,14 @@ header_pages:
 # Build settings
 theme: minima
 
+markdown: kramdown
+permalink: /:title
+
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
+
+exclude:
+ - Makefile
+ - LICENSE.txt
+ - minima.gemspec
