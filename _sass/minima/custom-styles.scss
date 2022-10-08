@@ -28,16 +28,18 @@ h3 {
 }
 
 .header {
-    text-align: center;
+    margin: 2em 2em 0;
+    text-align: right;
     top: auto;
-    margin: 3em auto;
 }
 
 .sidebar {
-
     background: $sidebar-background;
     color: #fff;
     width: $sidebar-width;
+    position: fixed;
+    top: 0;
+    bottom: 0;
 }
 
 .brand-title,
@@ -58,7 +60,7 @@ h3 {
     list-style: none;
 }
 .nav-item {
-    display: inline-block;
+    display: block;
     *display: inline;
     zoom: 1;
 }
@@ -82,7 +84,9 @@ h3 {
 }
 
 .content {
-    padding: 2em 1em 0;
+    margin-left: $sidebar-width;
+    padding: 2em 3em 0;
+    width: $content-width;
 }
 
 .post {
@@ -145,8 +149,14 @@ h3 {
     width:75px;
 }
 
+
 .footer {
     padding: 1em 0;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    margin: auto;
+    width: $sidebar-width;
 }
 .footer a {
     color: #ccc;
@@ -157,34 +167,40 @@ h3 {
     background: none;
 }
 
-@media (min-width: 48em) {
-    .content {
-        padding: 2em 3em 0;
-        margin-left: $sidebar-width;
-        width: $content-width;
-    }
+// Mobile
 
-    .header {
-        margin: 2em 2em 0;
-        text-align: right;
+@media (max-width: 48em) {
+    .content {
+        margin-left: 0;
+        padding: 2em 1em 0;
+        width: auto;
     }
 
     .sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
+        // background: unset;
+        display: block;
+        position: unset;
+        width: unset;
     }
-
-    .footer {
-        text-align: center;
-        position: absolute;
-        bottom: 0;
-        margin: auto;
-        width: $sidebar-width;
+    .site-title {
+        float: none;
     }
-
-
-    .nav-item {
+    .header {
+        text-align: unset;
+        margin: 0 1em;
+    }
+    .nav, .header h1 {
         display: block;
     }
+    .nav-item {
+        display: inline-block;
+        margin-bottom: 0.25em;
+        margin-right: 1em;
+    }
+    .footer {
+        display: none;
+    }
+}
+
+@media (min-width: 48em) {
 }
