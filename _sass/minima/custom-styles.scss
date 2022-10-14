@@ -48,6 +48,7 @@ h3 {
 }
 .brand-title {
     text-transform: uppercase;
+    padding-bottom: 0.75em;
 }
 .brand-tagline {
     font-weight: 300;
@@ -62,7 +63,8 @@ h3 {
 .nav-item {
     display: block;
     *display: inline;
-    zoom: 1;
+    padding-top: 0.5em;
+    zoom: 1.1;
 }
 .nav-item a {
     margin-top: 1em;
@@ -149,6 +151,12 @@ h3 {
     width:75px;
 }
 
+.post-thumbnail {
+    float: left;
+    margin-right:1em;
+    width:75px;
+}
+
 
 .footer {
     padding: 1em 0;
@@ -170,6 +178,10 @@ h3 {
 // Mobile
 
 @media (max-width: 48em) {
+    .brand-title {
+        padding-bottom: 0em;
+    }
+
     .content {
         margin-left: 0;
         padding: 2em 1em 0;

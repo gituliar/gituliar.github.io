@@ -27,9 +27,12 @@ layout: default
       <li>
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
+          {%- if post.image -%}
+          <img class="post-thumbnail" src="{{ post.image }}"/>
+          {%- endif -%}
             {{ post.title | escape }}
+          <div class="post-meta">{{ post.date | date: date_format }}</div>
           </a>
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
         </h3>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
