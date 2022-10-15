@@ -63,11 +63,12 @@ h3 {
 .nav-item {
     display: block;
     *display: inline;
-    padding-top: 0.75em;
+    padding-top: 0.875em;
 }
 .nav-item a {
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    @include relative-font-size(1.125);
 }
 
 
