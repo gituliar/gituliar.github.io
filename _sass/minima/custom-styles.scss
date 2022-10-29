@@ -17,6 +17,14 @@ h3 {
     font-weight: 100;
 }
 
+mark {
+    background: $background-color;
+    text-decoration-color: #9CB5B0;
+    text-decoration-line: underline;
+    text-decoration-thickness: 4px;
+    // text-underline-offset: 2px;
+}
+
 /* LAYOUT CSS */
 .pure-img-responsive {
     max-width: 100%;

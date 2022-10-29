@@ -14,10 +14,9 @@ __Resume.__ See [gituliar.pdf](gituliar.pdf) or [LinkedIn](https://www.linkedin.
 
 __Programming.__ Since 1999.
 
-__PhD in Physics.__ I was lucky to study `Particle Physics` for 9 years.
+__PhD in Physics.__ I was lucky to study <mark>Particle Physics</mark> for 9 years.
 
-__Quantitative Finance.__ Since 2018 I'm focused on `Financial Markets` and
-`Derivative Modeling`.
+__Quantitative Finance.__ Since 2018 I'm focused on <mark>Financial Markets</mark>.
 
 __Events.__ Attended [Scientific Event](/events) (tracked mainly for sentimental reasons).
 
