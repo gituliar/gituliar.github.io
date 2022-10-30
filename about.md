@@ -23,4 +23,4 @@ __Events.__ Attended [Scientific Event](/events) (tracked mainly for sentimental
 __Career.__ Not actively looking for a new position, but curious about the job market. Always
 happy to discuss what people have to offer.
 
-__Contact.__ The best way to reach me is by email <b>ole</b><b>ks</b><b>andr@</b><b>gitu</b><b>liar.</b><b>net</b>.
+__Contact.__ The best way to reach me is by email <b>ole</b><b>ks</b><b>andr@</b><b>gitu</b><b>liar.</b><b>net</b>
