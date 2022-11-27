@@ -13,10 +13,6 @@ a:focus {
     text-decoration: underline;
 }
 
-h3 {
-    font-weight: 100;
-}
-
 mark {
     background: $background-color;
     text-decoration-color: #9CB5B0;
@@ -179,6 +175,18 @@ mark {
 .footer .pure-menu a:hover,
 .footer .pure-menu a:focus {
     background: none;
+}
+
+img.plot {
+    display: block;
+    margin: auto;
+    width: 75%;
+}
+
+.q {
+    font-size: 1.5em;
+    margin-right: 0.25em;
+    // vertical-align: middle;
 }
 
 // Mobile
