@@ -5,14 +5,25 @@ date:   2022-11-21
 category: blog
 ---
 
+So you want to learn more about Black-Scholes model? You are in the right place.
+This post takes you to a practical
+environment to understand it better. Here you will find everything to start your experiments:
+elegant Python implementation, many usage examples, and... comments.
+
+In mathematical sense, Black-Scholes formula is very simple as it's composed of elementary
+functions familiar to every freshmen. But its dependence on multiple parameters
+(spot, volatility, and time to maturity) makes it complex to reason about in practice.
+The best way is to ... Know it from different angles, various regimes by plotting...
+To overcome this we will plot...
+
+Can't wait to run the code ? Go to <a href="https://github.com/gituliar/gituliar.github.io/blob/main/src/Black-Scholes.ipynb"
+target="_blank">Black-Scholes.ipynb</a> on GitHub or Colab.
+
 In this post you will find my implementation of Black-Scholes formula in Python.
 In contrast to many similar code in the internet, it doesn't require to type in
 exact formulae for greeks from Wikipedia or literature. You can easily define
 necessary greeks as derivative of appropriate parameters. This is especially handy
 for defining 2nd-order greeks and eliminating typos.
-
-Can't wait to see the result ? Go to <a href="https://github.com/gituliar/gituliar.github.io/blob/main/src/Black-Scholes.ipynb"
-target="_blank">Black-Scholes.ipynb</a> on GitHub.
 
 Continue below for a brief overview.
 
@@ -26,10 +37,6 @@ a future stock price distribution, or simply how volga look like.
 Surprisingly, I didn't find anything similar. Usually, people take a Jupyter notebook and
 type in exact formulae for prices and greeks from Wikipedia or literature. This is OK (assuming
 no typos). But it takes time to type and effort to find expressions for 2nd-order greeks.
-
-In its essence, Black-Scholes formula is simple. But its dependence on multiple parameters
-(spot, volatility, and time to maturity) makes it complex to reason about. Having a flexible
-routine to plot ...
 
 I wasn't the smartest guy in the calculus class. But, even I remember that taking derivatives
 is a trivial task. Hence I asked myself: Why don't you delegate a work of calculating
@@ -95,14 +102,15 @@ plot(
   (x, 1, 150))
 {% endhighlight %}
 
-TODO: Insert Plot
+<img  src="/img/black-scholes-jupyter/pdf-f.png" class="plot"/>
 
 This is also known as a risk-free probability -- a distribution which is handy for pricing
 derivatives, but completely useless to make predictions about the future.
 
 ### Sadly, but novice traders blindly rely on risk-free probability.
 
-Now back to options. Let's look at how premium decays for various out-of-the-money call contracts.
+Now back to options. Let's look at how premium decays for various out-of-the-money
+call contracts.
 
 
 {% highlight python %}
@@ -114,8 +122,9 @@ plot(
   (x, 0, AMD.T))
 {% endhighlight %}
 
-TODO: Update plot
-<img  src="/img/black-scholes/call-theta.png" class="plot"/>
+
+<img src="/img/black-scholes-jupyter/delta-s.png" class="plot float-left"/>
+<img src="/img/black-scholes-jupyter/delta-t.png" class="plot"/>
 
 {% highlight python %}
 plot(
@@ -126,8 +135,7 @@ plot(
   (x, 0, AMD.T))
 {% endhighlight %}
 
-TODO: Update plot
-<img  src="/img/black-scholes/call-theta.png" class="plot"/>
+<img src="/img/black-scholes/call-theta.png" class="plot"/>
 
 ### Oleksandr, what is your final thoughts ?
 

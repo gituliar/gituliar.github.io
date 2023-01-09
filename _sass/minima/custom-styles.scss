@@ -180,7 +180,11 @@ mark {
 img.plot {
     display: block;
     margin: auto;
-    width: 75%;
+    padding: 2.5%;
+    width: 50%;
+}
+img.float-left {
+    float: left;
 }
 
 .q {
