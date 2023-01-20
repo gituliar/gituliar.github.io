@@ -25,7 +25,7 @@ mentioned in the book, which I believe are nice movies worth to watch.
 This is not a classic book on screenwriting. In fact the author suggest it to be the last one
 you'll ever need. At the time of writing, _Save the Cat!_ had 5'773 reviews on Amazon -- more
 than any other screenwriting book. Hence, I decided to start my journey with it and follow
-with classic recommendation from Blake afterwards.
+with less-modern-classic recommendation from Blake afterwards.
 
 #### Highlights
 
@@ -52,16 +52,57 @@ It’s time for structure.
   8. _Fun and Games._ Lighter section; promise of a premise.
   9. _Midpoint._ Either an "up" or a "down" (but false).
   10. _Bad Guys Close In._ Bad guys regroup and send heavy artillery.
+  11. _All Is Lost._
+  12. _Dark Night of the Soul._
+  13. _Break Into Three._ The solution.
+  14. _Finale._ Wrap up Act Three.
+  15. _Final Image._ Opposite of the Opening Image.
+
+__5. Building the Perfect Beast.__
+Use a blackboard to visualize your movie before start writing. Figure out
+the major turns first. Enhance various parts of the story with color.
+
+You need a good idea, title, and a logline.
+
+Do a homework on a genre. Screen similar blogs, make it like that, but different.
+(What are your favorite blogs / posts ?)
+
+Prepare for writing. Sketch story with 4 cards: set a theme, A/B stories, final word.
+On every card something happens that causes the emotional tone to change
+drastically (+/- or -/+). Also it should contain a conflict with explicit
+statement of who is who in the conflict. Conflicts get our attention.
 
 
-#### Movies
+__6. The Immutable Laws of Screenplay Physics.__
+Intention: Explain screenwriting process from idea to execution.
+  * _Pope in the Pool._ Bury exposition in a lovely and entertaining way.
+  * _Double Mumbo Jumbo._ Only one pice of magic per movie. No aliens and vampires together.
+  * _Laying Pipe._ Audience can stand only so much "pipe". Don't risk attention of your audience.
+  * _Too Much Marzipan._ Simple is better. Once concept at a time, please.
+  * _Watch out for that glacier._ Don't make it slow.
+  * _The Covenant of the Arc._ Every character in the movie must change in the course of your story
+    Except, probably, bad guys.
+  * _Keep the Press Out._ Bring the press in with care.
 
-* Lawrence of Arabia
-* Citizen Kane
-* Animal House
+
+You feel like to learn magician's secrets of screenwriting.
 
 ---
 
 Book in 3 Sentences
+  * The hero has to __do__ something when we meet him so that we like him and
+    want him to win.
 
-Top 3 Quotes
+Top 3 Quotes:
+  * The worst thing that could ever happen in screenwriting is to not finish.
+  * Simple is better. Once concept at a time, please.
+  * Screenwriting is like solving a puzzle -- the more stories you break, the better you get.
+
+Plan:
+  1. _Intro._ Employ screenwriting "wisdom" in blogging.
+  2. _Theme A._ Story Structure:
+    + Idea, title, logline.
+    + Study genre, similar blogs.
+    + Sketch the story.
+  3. _Theme B._ Story Pizzle:
+    + Laws of Story: Do's and don'ts.
