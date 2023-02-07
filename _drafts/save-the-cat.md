@@ -1,41 +1,24 @@
 ---
 layout: post
 #title: Save the Cat! · Book Notes
-title: Screenwriter's Tips to a Tech Blogger
+title: Screenwriter Tips for a Newbie Blogger
 subtitle: by Blake Snyder · 2010
 category: note
 ---
 
 Title Ideas:
 
-- Screenwriter's to a Tech Blogger
+- Screenwriter Tips for a Newbie Blogger
 - Learn from the Craft of Scripting as a Tech Blogger
 - What can a Tech Blogger Learn from the Craft of Scripting ?
 - What can you learn from screenwriting craft as a tech blogger ?
 - Tips of Scripting for a Tech Blogger
 
-Structure:
+## Intro
 
-- **Intro.** How to improve craft of writing a tech blog?
-  - Screenwriting tips/craft/wisdom for tech blogging
-- **Act 1.** You need Idea and Logline
-  - You need Idea and Logline
-  - Think about Genre. Screen tech blogs, make like that, but different
-- **Act 2.** You need Structure
-  - Screenwriting is about emotions -- not a good fit for tech blogs
-  - Make it out of 4 Acts
-    - Good for mental picture, as your acts may contain subacts
-  - Logline for every act
-    - Help to build a solid structure to reason about in your head
-  - Remember, writing is iterative process. First verion of everything is shit.
-- **Outro.** The worst thing that could ever happen is to not finish.
-  - This post follows a four-act structure
-  - Screenwriting is like solving a puzzle -- the more stories you break, the better you get.
-  - Top 3 quotes
+**How to improve craft of writing a tech blog?**
 
----
-
-_Intro._ Employ screenwriting "wisdom" in blogging.
+> - Screenwriting tips/craft/wisdom for tech blogging
 
 This book is about screen writing -- a topic I decided to study more in depth in order to improve my
 writing and composition skills. Not surprisingly, screenwriting is mostly focused on entertainment
@@ -58,7 +41,10 @@ ever need. At the time of writing, _Save the Cat!_ had 5'773 reviews on Amazon -
 other screenwriting book. Hence, I decided to start my journey with it and follow with
 less-modern-classic recommendation from Blake afterwards.
 
-## You Need a Logline
+## You need a Logline -- Act 1
+
+> - You need Idea and Logline
+> - Think about Genre. Screen tech blogs, make like that, but different
 
 You need a good idea, title, and a logline.
 
@@ -75,7 +61,14 @@ one line.
 Logline should hook attention, intrigue, stimulate interest. Provide synopsis of the plot and an
 emotional (ironic or provocative) hook to stimulate interest.
 
-## Solid Structure
+## You need a Structure -- Act 2
+
+> - Screenwriting is about emotions -- not a good fit for tech blogs
+> - Make it out of 4 Acts
+>   - Good for mental picture, as your acts may contain subacts
+> - Logline for every act
+>   - Help to build a solid structure to reason about in your head
+> - Remember, writing is iterative process. First verion of everything is shit.
 
 Strong structure is extremely important for a movie script with all its emotional swings, unexpected
 turns, and other tricks that keep an audience engaged. That is not so much true for a short blog
@@ -100,26 +93,29 @@ Every movie falls into a category, which has the rules you have to know. In orde
 spin on a tradition. What movie is yours similar to ? 10 genres. Do a homework on a genre. Screen
 similar blogs, make it like that, but different. (What are your favorite blogs / posts ?)
 
-## Summary
+## Summary -- The worst thing that could ever happen is to not finish.
+
+> - This post follows a four-act structure
+> - Screenwriting is like solving a puzzle -- the more stories you break, the better you get.
 
 Even for this short post I sorted out a logline while reading the book. It changed few times as I
 failed to predict remaining of the book while reading, however at the end I had a clear idea of what
 I want to write about. Building a logline while reading a book is extremely helpful to understand
 what author is trying to say and sort it out in your head for yourself.
 
-Book in 3 Sentences
+---
 
-Top 3 Quotes:
+# Book Notes
+
+#### Book in 3 Sentences
+
+#### Top 3 Quotes
 
 - The worst thing that could ever happen in screenwriting is to not finish.
 - Screenwriting is like solving a puzzle -- the more stories you break, the better you get.
 - Movies are so much about what happens that we must learn about characters by what they do, not by
   what they say. In a good movie, information does not come out in diaglog, it comes out in what's
   _happening_ now. Show, don't tell!
-
----
-
-_Theme A._ Story Structure:
 
 #### Highlights
 
