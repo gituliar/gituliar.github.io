@@ -1,47 +1,30 @@
 ---
 layout: post
 #title: Save the Cat! · Book Notes
-title: Screenwriter Tips for a Newbie Blogger
+title: Screenwriter's Tips for a Newbie Blogger
 subtitle: by Blake Snyder · 2010
 category: note
 ---
 
-Title Ideas:
+**How to improve your writing?**
 
-- Screenwriter Tips for a Newbie Blogger
-- Learn from the Craft of Scripting as a Tech Blogger
-- What can a Tech Blogger Learn from the Craft of Scripting ?
-- What can you learn from screenwriting craft as a tech blogger ?
-- Tips of Scripting for a Tech Blogger
+This post is not about screenwriting. I am not a screenwriter either. It started one raining evening
+in Copenhagen when I asked myself "How to improve my writing skills?". Tutorials on writing novels
+probably don't exist, but even if they do, I wouldn't need them. Eventually, I want to focus is
+blogging, but not lengthy fiction.
 
-## Intro
+What is close to blogging by form? You guessed it -- screenwriting. A concise, minimalist form with
+structured action line that hits right on target, without mumbling and clutter.
 
-**How to improve craft of writing a tech blog?**
+You can dedicate your life to screenwriting. It is a real profession. As every profession it should
+have some best practices, rules to follow (or avoid), and practical advices how to overcome crisis
+moments. This is what I decided to look for. The book I started with is "Save the Cat!" by Blake
+Snyder. This is a modern classic. The author suggests it to be the last book you'll ever need,
+that makes sense to some extend.
 
-> - Screenwriting tips/craft/wisdom for tech blogging
+> - Mention McKee and 21 days...
 
-This book is about screen writing -- a topic I decided to study more in depth in order to improve my
-writing and composition skills. Not surprisingly, screenwriting is mostly focused on entertainment
-industry. This might seem to be irrelevant for a technical blogger. However, it offers valuable
-suggestions to structure and build narrative of the text. Screenplays are much less formal and
-easy-to-read than regular books, which make them similar to blog posts. As a screenplay is supposed
-to evolve into a movie, a blog post might evolve into a YouTube video or GitHub project.
-
-Screenwriting is also a craft being established for more than an century. Many talented and creative
-writers were attracted by its lucrative rewards and worldwide fame it brings. For a newbie writer
-this craft offers a lot to learn from: best practices, do's and don'ts, workflow suggestions, etc.
-It'd be unwise to invent that knowledge yourself.
-
-In this review, I focus mostly on the content related to technical blogging and try to avoid
-entertainment details which this book is full of. Although, in the end you'll find a list of movies
-mentioned in the book, which I believe are nice movies worth to watch.
-
-This is not a classic book on screenwriting. In fact the author suggest it to be the last one you'll
-ever need. At the time of writing, _Save the Cat!_ had 5'773 reviews on Amazon -- more than any
-other screenwriting book. Hence, I decided to start my journey with it and follow with
-less-modern-classic recommendation from Blake afterwards.
-
-## You need a Logline -- Act 1
+## You Need a Logline
 
 > - You need Idea and Logline
 > - Think about Genre. Screen tech blogs, make like that, but different
@@ -61,7 +44,7 @@ one line.
 Logline should hook attention, intrigue, stimulate interest. Provide synopsis of the plot and an
 emotional (ironic or provocative) hook to stimulate interest.
 
-## You need a Structure -- Act 2
+## You need a Structure
 
 > - Screenwriting is about emotions -- not a good fit for tech blogs
 > - Make it out of 4 Acts
