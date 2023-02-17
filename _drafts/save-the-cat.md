@@ -19,8 +19,8 @@ structured action line that hits right on target, without mumbling and clutter.
 You can dedicate your life to screenwriting. It is a real profession. As every profession it offers
 best practices, rules to follow (or avoid), and, in case of writing, how to overcome crisis moments.
 This is what I decided to look for. A book I started with is "Save the Cat!" by Blake Snyder. This
-is a modern classic. The author suggests it to be the last book you'll ever need, however also
-recomends such classics as "Story" by Robert McKee and "How to Write a Movie in 21 Days" by Viki
+is a modern classic. The author suggests this is the last book you'll ever need, while also
+recomending classics such as "Story" by Robert McKee and "How to Write a Movie in 21 Days" by Viki
 King.
 
 ## You Need a Logline
@@ -55,9 +55,9 @@ Don't rush. Take your time. Enjoy the process not the outcome!
 
 ---
 
-## "Save the Cat!" -- Highlights
+## "Save the Cat!" -- Recap
 
-> Movies are so much about what happens that we must learn about characters by what they do, not by
+> Movies are so much about what happens that we must _learn about characters by what they do_, not by
 > what they say. In a good movie, information does not come out in diaglog, it comes out in what's
 > _happening_ now. Show, don't tell!
 
