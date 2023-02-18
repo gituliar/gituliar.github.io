@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
 
 {%- include head.html -%}
 
 <body>
-  <div id="layout">
+  <div id="document">
+
+    {{ content }}
 
     {%- include sidebar.html -%}
-
-    <main class="content" aria-label="Content">
-      <div>
-        {{ content }}
-      </div>
-    </main>
 
   </div>
 </body>

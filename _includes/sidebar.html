@@ -1,10 +1,10 @@
-<sidebar class="sidebar">
-  <div class="header">
+<aside>
+  <header>
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-    <h1 class="brand-title">
-      <span class="site-title" rel="author">{{ site.title | escape }}</span>
+    <h1>
+      <span rel="author">{{ site.title | escape }}</span>
     </h1>
 
     <nav class="nav">
@@ -13,17 +13,17 @@
           <a class="page-link" href="/">Blog</a>
         </li>
         {%- for path in page_paths -%}
-          {%- assign my_page = site.pages | where: "path", path | first -%}
-          {%- if my_page.title -%}
-          <li class="nav-item">
-            <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-          </li>
-          {%- endif -%}
+        {%- assign my_page = site.pages | where: "path", path | first -%}
+        {%- if my_page.title -%}
+        <li class="nav-item">
+          <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+        </li>
+        {%- endif -%}
         {%- endfor -%}
       </ul>
     </nav>
-  </div>
+  </header>
 
   {%- include footer.html -%}
 
-</sidebar>
+</aside>

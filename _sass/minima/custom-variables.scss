@@ -1,15 +1,22 @@
 // Placeholder to allow overriding predefined variables smoothly.
 
-$base-font-size: 17px;
-//$base-line-height: 1.5;
+$base-font-size: 18px;
+$base-line-height: 1.5;
 
 //$base-font-family: Lato, Helvetica, sans-serif;
-$code-font-family: monospace;
-$code-background-color:  #DFE5E8;
-
-$content-width:   760px;
-
-$sidebar-background:    #E8E4DF ; // Timberwolf Gray
-$sidebar-width:         240px !default;
-
 // $base-font-family: Lato;
+$base-font-family: "Open Sans";
+
+$code-font-family: monospace;
+$code-background-color: #dfe5e8;
+
+$article-width: 780px;
+
+$background-color: #f3f4f6;
+$text-color: #222222;
+
+$document-border-color: #ccc;
+
+$sidebar-background: #f9fafb;
+$sidebar-border-color: #e4e7eb;
+$sidebar-width: 250px;
