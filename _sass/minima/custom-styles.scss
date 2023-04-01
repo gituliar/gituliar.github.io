@@ -4,6 +4,18 @@
   box-sizing: border-box;
 }
 
+html {
+    overflow-y:scroll;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  background-image: radial-gradient(4px at center, $document-border-color 20%, transparent 20%), radial-gradient(4px at center, $document-border-color 20%, transparent 20%);
+  background-position: 0px 0px, 4px 3px;
+  background-size: 8px 6px;
+  background-attachment:fixed;
+}
+
 div#document {
   background: #fff;
   border: solid $document-border-color;
@@ -121,7 +133,7 @@ aside {
   line-height: 1.8em;
 }
 .post-meta {
-  color: #999;
+  color: $text-color;
   font-size: $base-font-size;
   margin: 0;
 }
@@ -194,7 +206,7 @@ a:focus {
 }
 
 mark {
-  background: $background-color;
+  background: none;
   text-decoration-color: #9cb5b0;
   text-decoration-line: underline;
   text-decoration-thickness: 4px;

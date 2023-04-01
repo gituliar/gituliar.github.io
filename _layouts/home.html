@@ -31,8 +31,8 @@ layout: default
           <img class="post-thumbnail" src="{{ post.image }}" />
           {%- endif -%}
           {{ post.title | escape }}
-          <div class="post-meta">{{ post.date | date: date_format }}</div>
         </a>
+        <div class="post-meta">{{ post.date | date: date_format }}</div>
       </h3>
       {%- if site.show_excerpts -%}
       {{ post.excerpt }}
