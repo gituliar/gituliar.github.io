@@ -3,6 +3,11 @@ layout: post
 title: Blogging Ideas
 ---
 
+- Improve as a programmer -- try different paradigms:
+  - Functional (LISP, F#)
+  - Assembly
+  - GPU (CUDA C++)
+
 - Do we need fast code ?
   - When you hear _fast code_, do you think elegant or ugly code?
   - We need fast code, but that should not be a priority. Most of the time we need usable and
