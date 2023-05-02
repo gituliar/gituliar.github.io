@@ -259,11 +259,8 @@
   }
 
   h2 {
-    @include relative-font-size(1.75);
-
-    @media screen and (min-width: $on-large) {
-      @include relative-font-size(2);
-    }
+    @include relative-font-size(1.1);
+    font-weight: 700;
   }
 
   h3 {

@@ -16,9 +16,18 @@ body {
   background-attachment:fixed;
 }
 
+h1 {
+  font-family:sans-serif;
+}
+
+h2 {
+  font-family: sans-serif;
+}
+
 div#document {
   background: #fff;
-  border: solid $document-border-color;
+  // border: solid $document-border-color;
+  border: solid #ccc;
   border-width: 0px 1px;
   display: flex;
   flex-direction: row;

@@ -1,11 +1,12 @@
 // Placeholder to allow overriding predefined variables smoothly.
 
 $base-font-size: 18px;
-$base-line-height: 2.0;
+$base-line-height: 1.6;
 
 //$base-font-family: Lato, Helvetica, sans-serif;
 // $base-font-family: Lato;
-$base-font-family: "Open Sans";
+// $base-font-family: "Open Sans";
+$base-font-family: sans-serif;
 
 $code-font-family: monospace;
 $code-background-color: #dfe5e8;
@@ -15,10 +16,10 @@ $article-width: 860px;
 $background-color: #f3f4f6;
 $text-color: #222222;
 
-$document-border-color: #ccc;
+$document-border-color: #ddd;
 
 // $sidebar-background: #f9fafb;
 $sidebar-background: white;
 // $sidebar-border-color: #e4e7eb;
 $sidebar-border-color: white;
-$sidebar-width: 250px;
+$sidebar-width: 270px;
