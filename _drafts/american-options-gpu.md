@@ -1,52 +1,117 @@
 ---
 layout: post
-title: How to Price Derivatives with Finite-Diference on GPU in C++
+title: Pricing Options with Finite-Diference on GPU in C++
 category: note
 ---
 
-## --- What is this post about ?
+## --- CPU vs GPU: which is made for pricing with finite-difference ?
 
-This post is all about benchmarking Finite-Difference method on CPU and GPU as used for pricing
-financial derivatives. We will talk about the method itself later in the post. For now you should
-know that all code is written in C++ for CPU and in C++/CUDA for GPU. Both with floats and doubles.
-So, that in total we get four variants to benchmark.
+- This is the question we will answer in this post.
 
-I focus on pricing American options for benchmarking (and include European counterparts for
-completeness). This is a non-trivial but simple example still priced with finite-difference in many
-organizations. My code can handle not only this, but any finite-difference problem in one dimension
-of the following form
+- I am sure you know what CPU and GPU are. Let's recall some key differences:
 
- (put 1D PDE here)
+  - Average GPU runs about 100x more threads than average CPU.
 
-## --- What is the best practice for pricing options ?
+    Of course, GPU threads are less powerful and run at lower frequency. But still, a perspective of
+    at least 10x speedup sounds very attractive.
 
-There is one important note worth to mention. Although my code is fast by the industrial standards,
-the finite-difference method is not the fastest for pricing options with _geometrical brownian motion_
-dynamics. For much fater methods consider to use the following:
+  - Average customer-grade GPU has 32x more computational units for single-precision than for
+    double-precision operations.
+
+    This is because for gaming you need mostly single-precision operations. For idustrial
+    simulations single-precision is not enough. That's where professional GPU cards with more
+    double-precision units are used.
+
+    In theory, by sacrifysing some precision  we might get 32x speed-up. Sounds too good to be true
+    --- worth to check.
+
+- These are facts I have no idea about, hence decided to run an experiment and compare on practice.
+
+
+## --- What is your benchmarking plan ?
+
+- Finite-Difference code
+
+  First of all, we need some implementation of the final-difference method. To avoid shortcuts, I
+  wrote my own implementation:
+  - The CPU code is written in C++
+
+    Crank-Nikolson scheme: Matrix multiplication + Tridiagonal solver.
+
+  - The GPU code is written in C++/CUDA
+
+    Very much mimicks CPU code. Easy to compare.
+
+  - Everything runs on x64 machines with Linux or Windows
+
+- Partial-Differential Equation
+
+  Our finite-difference solver can price many different instruments. We need to decide on some
+  particular examples for benchmarking.
+
+  - European options
+
+    Closed-form solution is known -- famous Black-Scholes equation.
+
+  - American options
+
+    No closed-form solution, hence very practical to solve.
+
+    Recently a very fast and precise method for pricing American options has been developed.
+    Hence, we can compare against many examples.
+
+My code can handle not only this, but any finite-difference problem in one dimension of the
+following form
+
+
+## --- What is the best practice for pricing Amrican options ?
+
+- !!! Finite-Difference method is not the best approach to price American options. !!!
 
 - European options
-  - Pricing: Black-Scholes exact formula
+
+  - Pricing: Black-Scholes formula
+
   - Calibration: Jaeckel "Let's be rational" by Jackel
+
 - American options
+
   - Pricing: "High-Performance American Option Pricing" by Andersen, Lake, Offengenden
+
   - Calibration: Newton-...
 
-## --- Is the Finite-Difference method still worth to use ?
+- European/American options for underlyings with exotic dynamics ?
 
-With no doubt, it's one of the most popular and powerful method for pricing derivatives. It works
-best with problems up to 2 dimensions. In contrast, Monte-Carlo is usually used in 3 dimensions and above.
-Both are general methods widely used in practice and capable of pricing a wide range of tradeable instruments.
 
-## --- How sure are you that your code is correct ?
+## --- Is the Finite-Difference method used in practice ?
 
-This is very good and extremely important question. Indeed, it has no sense to benchmark incorrect
-code. To test correctness of my implementation, I price a portfolio of 4200 options proposed in ...
-and also used in Andersen et al. This portfolio is constructed by permuting all combinations of
-the following parameters:
+- Finite-Difference method is very practical
+
+- Beats Monte-Carlo in lower dimensions
+
+  Both are general methods widely used in practice and capable of pricing a wide range of
+  tradeable instruments.
+
+- Used to price many exotic derivatives
+
+(put 1D PDE here)
+
+
+## --- How are you sure that your code is correct ?
+
+Very good question. Indeed, it has no sense to benchmark wrong code.
+
+- I compare against a portfolio of 42000 options
+
+  Priced with Anderesen et al. implementation form QuantLib.
+
+- The portfolio is constructed by permuting all combinations of the following parameters:
+
 
 ## --- What are your main findings ?
 
 - Overall performance (plot + table)
+
 - Performance of every of 4 steps (plot + table)
 
 - Metrics
@@ -55,11 +120,21 @@ the following parameters:
   - GPU FP32
   - GPU FP64
 
-## --- Could you briefly describe the Finite-Difference algorithm ?
 
-## --- What GPU cards did you test ?
+## --- What is the Finite-Difference algorithm in a nutshell ?
 
-Graphics card, which I current have at hand:
+(put discrete equation)
+
+- Fill LHS (matrix mul)
+- Fill RHS (matrix mul)
+- Find V (solve triangular)
+- Ensure Early-Exercise
+
+## --- Which CPUs did you use for benchmarks ?
+
+## --- Which GPUs did you use for benchmarks ?
+
+Here is a list of graphic cards, which I current have at hand:
 
 - Nvidia Quadro P520 (mobile)
   - GP108, Pascal architecture
@@ -76,11 +151,13 @@ Graphics card, which I current have at hand:
 
 ## --- What is your conclusion ?
 
-- FP32 is not 32x faster
-- FP32 is 2x faster on average (5x in best case)
-- FP32 is not enough even for 2-digit precision
+- Treat GPU as external coprocessor that reuires some time for initialization before starting your
+  calculations.
 
-## --- What materials on finite-difference would you recommend ?
+- A single thread on my home server with Xeon CPU is 2x slower than a thread on my laptop CPU with
+  i7 CPU.
+
+## --- What study materials would you recommend ?
 
 <https://hpcquantlib.wordpress.com/2022/10/09/high-performance-american-option-pricing> by Klaus
 Spanderen
