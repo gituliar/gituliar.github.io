@@ -1,39 +1,44 @@
 ---
 layout: post
-title: Pricing Options with Finite-Diference on GPU in C++
+title: Pricing American Options on GPU
 category: note
 ---
 
-## --- CPU vs GPU: which is made for pricing with finite-difference ?
+## --- Made to price with finite-difference: CPU or GPU ?
 
 - This is the question we will answer in this post.
 
-- I am sure you know what CPU and GPU are. Let's recall some key differences:
+- Let's recall some key differences between CPU and GPU:
 
-  - Average GPU runs about 100x more threads than average CPU.
+  - An average GPU runs about 100x more threads than average CPU.
 
     Of course, GPU threads are less powerful and run at lower frequency. But still, a perspective of
     at least 10x speedup sounds very attractive.
 
-  - Average customer-grade GPU has 32x more computational units for single-precision than for
-    double-precision operations.
+  - An average GPU contains FP32 and FP64 cores in a ratio of 32:1. In theory, this means 32x more
+    GFLOPS simply from switching from `double` to `float`. Sounds too good to be true, hence worth
+    to check.
 
     This is because for gaming you need mostly single-precision operations. For idustrial
     simulations single-precision is not enough. That's where professional GPU cards with more
     double-precision units are used.
 
-    In theory, by sacrifysing some precision  we might get 32x speed-up. Sounds too good to be true
-    --- worth to check.
-
 - These are facts I have no idea about, hence decided to run an experiment and compare on practice.
 
+## --- What do you compare ?
 
-## --- What is your benchmarking plan ?
+- American options
 
-- Finite-Difference code
+  No closed-form solution, hence very practical to solve.
+
+  Recently a very fast and precise method for pricing American options has been developed.
+  Hence, we can compare against many examples.
+
+- Finite-Difference method
 
   First of all, we need some implementation of the final-difference method. To avoid shortcuts, I
   wrote my own implementation:
+
   - The CPU code is written in C++
 
     Crank-Nikolson scheme: Matrix multiplication + Tridiagonal solver.
@@ -44,27 +49,9 @@ category: note
 
   - Everything runs on x64 machines with Linux or Windows
 
-- Partial-Differential Equation
+In general, my code can solve any 1D problem of the form ...
 
-  Our finite-difference solver can price many different instruments. We need to decide on some
-  particular examples for benchmarking.
-
-  - European options
-
-    Closed-form solution is known -- famous Black-Scholes equation.
-
-  - American options
-
-    No closed-form solution, hence very practical to solve.
-
-    Recently a very fast and precise method for pricing American options has been developed.
-    Hence, we can compare against many examples.
-
-My code can handle not only this, but any finite-difference problem in one dimension of the
-following form
-
-
-## --- What is the best practice for pricing Amrican options ?
+## --- What is the best practice for pricing American options in 2023 ?
 
 - !!! Finite-Difference method is not the best approach to price American options. !!!
 
@@ -82,8 +69,7 @@ following form
 
 - European/American options for underlyings with exotic dynamics ?
 
-
-## --- Is the Finite-Difference method used in practice ?
+## --- Finite-Difference method should be obsolete in 2023, isn't it ?
 
 - Finite-Difference method is very practical
 
@@ -96,32 +82,7 @@ following form
 
 (put 1D PDE here)
 
-
-## --- How are you sure that your code is correct ?
-
-Very good question. Indeed, it has no sense to benchmark wrong code.
-
-- I compare against a portfolio of 42000 options
-
-  Priced with Anderesen et al. implementation form QuantLib.
-
-- The portfolio is constructed by permuting all combinations of the following parameters:
-
-
-## --- What are your main findings ?
-
-- Overall performance (plot + table)
-
-- Performance of every of 4 steps (plot + table)
-
-- Metrics
-  - CPU FP32
-  - CPU FP64
-  - GPU FP32
-  - GPU FP64
-
-
-## --- What is the Finite-Difference algorithm in a nutshell ?
+## --- What is the Finite-Difference method in a nutshell ?
 
 (put discrete equation)
 
@@ -130,24 +91,47 @@ Very good question. Indeed, it has no sense to benchmark wrong code.
 - Find V (solve triangular)
 - Ensure Early-Exercise
 
-## --- Which CPUs did you use for benchmarks ?
+## --- Is your code correct at all ?
 
-## --- Which GPUs did you use for benchmarks ?
+Very good question. Indeed, it has no sense to benchmark code that generates wrong numbers.
 
-Here is a list of graphic cards, which I current have at hand:
+- I compare against a portfolio of 42000 options
 
-- Nvidia Quadro P520 (mobile)
-  - GP108, Pascal architecture
-  - 384 fp32 cores, 1/32 for fp64
-  - 2GB
-  - CUDA 6.1
+  Priced with Andersen et al. implementation form QuantLib.
 
-- Nvidia Quadro P620
-  - GP107, Pascal architecture
-  - 512 fp32 cores, 1/32 for fp64
-  - 2GB
-  - CUDA 6.1
+  (put table here)
 
+- The portfolio is constructed by permuting all combinations of the following parameters:
+
+## --- What hardware did you use ?
+
+Before we proceed to the results, let's see what I used to run the benchmark.
+
+- Nvidia Quadro P520 2GB (mobile)
+
+  - GP108 Pascal
+  - 3 SM, 384 cores
+
+- Nvidia Quadro P620 2GB
+
+  - GP107 Pascal
+  - 4 SM, 512 cores
+
+- Nvidia GTX 1070 8GB
+  - GP104 Pascal
+  - 15 SM, 1920 cores
+
+## --- What did you find out ?
+
+- Overall performance (histogram + table)
+
+- Performance of every of 4 steps (histogram + table)
+
+- Metrics
+  - CPU FP32
+  - CPU FP64
+  - GPU FP32
+  - GPU FP64
 
 ## --- What is your conclusion ?
 
