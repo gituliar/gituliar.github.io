@@ -1,88 +1,87 @@
 ---
 layout: post
-title: Pricing American Options on GPU
+title: Pricing American Options on a GPU
 category: note
 ---
 
-## --- Made to price with finite-difference: CPU or GPU ?
+We live in a machine-learning age, where GPU computing is playing a key role. GPUs are fast, cheap,
+and relatively easy to program, which makes them an excellent platform to port conventional
+computational algorithms to. When it comes to pricing derivatives, the finite-difference method is
+as popular as Monte-Carlo, fast, accurate, and is applicable to a wide range of problems in the
+quantitative finance.
 
-- This is the question we will answer in this post.
+What follows is my experiment of porting a finite-difference solver from CPU to GPU. Note, that I
+implemented both solvers from scratch, following the same algorithm, with no GPU-specific
+optimizations or best practices (which still feel more like an art than a scince).
 
-- Let's recall some key differences between CPU and GPU:
+Source Code (C++): <https://github.com/gituliar/kwinto-cuda>
 
-  - An average GPU runs about 100x more threads than average CPU.
+## CPU vs GPU
 
-    Of course, GPU threads are less powerful and run at lower frequency. But still, a perspective of
-    at least 10x speedup sounds very attractive.
+- The average **GPU has ~100x more cores** than the average CPU.
 
-  - An average GPU contains FP32 and FP64 cores in a ratio of 32:1. In theory, this means 32x more
-    GFLOPS simply from switching from `double` to `float`. Sounds too good to be true, hence worth
-    to check.
+  For example, my GPU has 1920 cores (Nvidia GTX 1070) vs 12 cores on my CPU (AMD Ryzen 9 X5900),
+  this is 160x cores more. (Of course, GPU cores are less powerful and run at lower frequency.
+  But still, a perspective of at least 10x speedup seems realistic.)
 
-    This is because for gaming you need mostly single-precision operations. For idustrial
-    simulations single-precision is not enough. That's where professional GPU cards with more
-    double-precision units are used.
+- The average **GPU has 32x more single-precision units** than double-precision units.
 
-- These are facts I have no idea about, hence decided to run an experiment and compare on practice.
+  In theory, this means 32x more GFLOPS simply by switching from `double` to `float`. Sounds too
+  good to be true for such a trivial change, but worth to check.
 
-## --- What do you compare ?
+- Finally, **GPUs are cheap**.
 
-- American options
+  On a secondary market I paid $250 for the CPU and only $120 for the GPU. In addition, take into
+  account that you can run multiple GPUs on a single motherboard, while an extra CPU essentially
+  required a whole new machine. This can easily give extra 3x advantage in favour of GPU (or even 5x
+  with crypto-mining motherboards running 20 GPUs).
 
-  No closed-form solution, hence very practical to solve.
+## Benchmarks
 
-  Recently a very fast and precise method for pricing American options has been developed.
-  Hence, we can compare against many examples.
+For benchmarking, what you see in the chart is an average speed of 8 batch runs, such that
 
-- Finite-Difference method
+- CPU utilizes only one core
+- GPU utilizes the entire card
+- Batch size varies from 256 to 16'384 of american put options with premium 0.5 or higher.
 
-  First of all, we need some implementation of the final-difference method. To avoid shortcuts, I
-  wrote my own implementation:
+<!-- <figure>
+  <img src="/img/fd1d-gpu-z800.png"/>
+  <figcaption>This is my caption text.</figcaption>
+</figure> -->
 
-  - The CPU code is written in C++
+<figure>
+  <img src="/img/fd1d-gpu-b550.png"/>
+  <figcaption>This is my caption text.</figcaption>
+</figure>
 
-    Crank-Nikolson scheme: Matrix multiplication + Tridiagonal solver.
+## Checks
 
-  - The GPU code is written in C++/CUDA
+Very good question. Indeed, it has no sense to benchmark code that generates wrong numbers.
 
-    Very much mimicks CPU code. Easy to compare.
+- I compare against a portfolio of 42000 options
 
-  - Everything runs on x64 machines with Linux or Windows
+  Priced with Andersen et al. implementation form QuantLib.
 
-In general, my code can solve any 1D problem of the form ...
+  |       | CPU x32 | CPU x64 | GPU x32 | GPU x64 |
+  | ----- | ------- | ------- | ------- | ------- |
+  | RMSE  | 20.7e-4 | 5.4e-4  | 15.8e-4 | 5.4e-4  |
+  | RRMSE | 9.9e-5  | 8.1e-5  | 9.1e-5  | 8.1e-5  |
+  | MAE   | 23.7e-3 | 4.3e-3  | 25.1e-3 | 4.3e-3  |
+  | RAE   | 1.1e-3  | 1.1e-3  | 1.1e-3  | 1.1e-3  |
 
-## --- What is the best practice for pricing American options in 2023 ?
+- The portfolio is constructed by permuting all combinations of the following parameters:
 
-- !!! Finite-Difference method is not the best approach to price American options. !!!
+  | Parameter                   | Range                                        |
+  | --------------------------- | -------------------------------------------- |
+  | **k** -- strike             | 100                                          |
+  | **s** -- spot               | 25, 50, 80, 90, 100, 110, 120, 150, 175, 200 |
+  | **t** -- time to maturity   | 1/12, 0.25, 0.5, 0.75, 1.0                   |
+  | **z** -- implied volatility | 0.1, 0.2, 0.3, 0.4, 0.5, 0.6                 |
+  | **r** -- interest rate      | 2%, 4%, 6%, 8%, 10%                          |
+  | **q** -- dividend rate      | 0%, 4%, 8%, 12%                              |
+  | **w** -- parity             | PUT                                          |
 
-- European options
-
-  - Pricing: Black-Scholes formula
-
-  - Calibration: Jaeckel "Let's be rational" by Jackel
-
-- American options
-
-  - Pricing: "High-Performance American Option Pricing" by Andersen, Lake, Offengenden
-
-  - Calibration: Newton-...
-
-- European/American options for underlyings with exotic dynamics ?
-
-## --- Finite-Difference method should be obsolete in 2023, isn't it ?
-
-- Finite-Difference method is very practical
-
-- Beats Monte-Carlo in lower dimensions
-
-  Both are general methods widely used in practice and capable of pricing a wide range of
-  tradeable instruments.
-
-- Used to price many exotic derivatives
-
-(put 1D PDE here)
-
-## --- What is the Finite-Difference method in a nutshell ?
+## Finite-Difference method
 
 (put discrete equation)
 
@@ -91,49 +90,17 @@ In general, my code can solve any 1D problem of the form ...
 - Find V (solve triangular)
 - Ensure Early-Exercise
 
-## --- Is your code correct at all ?
+Pay attention to:
 
-Very good question. Indeed, it has no sense to benchmark code that generates wrong numbers.
+- Dsicretization over x-axis (use atanh)
+- Limits over x-axis (use ...)
 
-- I compare against a portfolio of 42000 options
+References:
 
-  Priced with Andersen et al. implementation form QuantLib.
+- Andreasen + Huge
+- QuantLib
 
-  (put table here)
-
-- The portfolio is constructed by permuting all combinations of the following parameters:
-
-## --- What hardware did you use ?
-
-Before we proceed to the results, let's see what I used to run the benchmark.
-
-- Nvidia Quadro P520 2GB (mobile)
-
-  - GP108 Pascal
-  - 3 SM, 384 cores
-
-- Nvidia Quadro P620 2GB
-
-  - GP107 Pascal
-  - 4 SM, 512 cores
-
-- Nvidia GTX 1070 8GB
-  - GP104 Pascal
-  - 15 SM, 1920 cores
-
-## --- What did you find out ?
-
-- Overall performance (histogram + table)
-
-- Performance of every of 4 steps (histogram + table)
-
-- Metrics
-  - CPU FP32
-  - CPU FP64
-  - GPU FP32
-  - GPU FP64
-
-## --- What is your conclusion ?
+## Summary
 
 - Treat GPU as external coprocessor that reuires some time for initialization before starting your
   calculations.
@@ -141,7 +108,7 @@ Before we proceed to the results, let's see what I used to run the benchmark.
 - A single thread on my home server with Xeon CPU is 2x slower than a thread on my laptop CPU with
   i7 CPU.
 
-## --- What study materials would you recommend ?
-
 <https://hpcquantlib.wordpress.com/2022/10/09/high-performance-american-option-pricing> by Klaus
 Spanderen
+
+American options Pricing: "High-Performance American Option Pricing" by Andersen, Lake, Offengenden
