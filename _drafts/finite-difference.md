@@ -14,6 +14,45 @@ category: note
 
 - Crank-Nicolson method
 
+## Models
+
+- Local Volatility Interpolation
+  - Fd1d
+  - 2008 - Carr - The Local Variance Gamma Model<br/>
+    2010 - Andreasen, Huge - Volatility Interpolation
+
+- Single-Asset SLV Model
+  - Fd1d
+  - 2008 - Andreasen, Huge - VVV on Steroids
+
+  ```
+  dS = sqrt(z) sigma(t,s) dW 
+  dz = theta (1-z) dt + nu * eps sqrt(z) dZ
+  dW.dZ = rho dt
+  ```
+
+- Local Risk Premium model
+  - Fd1d
+  - 2014 - Andreasen, Huge - Money Machine
+
+- Atom SABR model
+  - Fd1d
+
+  ```
+  dS = v z h(S) dW1
+  dz = s z^gamma dW2
+  dW1.dW2 = rho dt
+  ```
+
+- Single-Asset SLV model
+  - Fd2d (transpose method)
+  - 2009 - Andreasen - Planck-Fokker Boundary Conditions
+
+- Cheyette 1F model
+  - Fd2d
+  - 2010 - Andreasen - Turbo Charging the Cheyette Model
+    <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1719142>
+
 ## Literature
 
 - **Andreasen, Huge** -- Finite Difference Methods
