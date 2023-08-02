@@ -7,7 +7,6 @@ description: > # this means to ignore newlines until "show_excerpts:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 url: https://gituliar.net
-
 show_excerpts: false # set to true to show excerpts on the homepage
 
 # Minima date format
@@ -18,7 +17,7 @@ minima:
   # generate social links in footer
   social_links:
     # twitter: jekyllrb
-    github:  gituliar
+    github: gituliar
     # devto: jekyll
     # dribbble: jekyll
     # facebook: jekyll
@@ -49,7 +48,7 @@ minima:
     # - username: jekyll2
     #   instance: example.com
 
-google_analytics:   UA-168540911-1
+google_analytics: G-2H5DXJ2SNH
 
 disqus:
   shortname: gituliar-net
@@ -57,7 +56,7 @@ disqus:
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
 header_pages:
- - about.md
+  - about.md
 
 # Build settings
 theme: minima
@@ -66,10 +65,10 @@ markdown: kramdown
 permalink: /:title
 
 plugins:
- - jekyll-feed
- - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-seo-tag
 
 exclude:
- - Makefile
- - LICENSE.txt
- - minima.gemspec
+  - Makefile
+  - LICENSE.txt
+  - minima.gemspec
